@@ -1,3 +1,4 @@
+import 'package:elearningapp_frontend/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:elearningapp_frontend/features/auth/usecases/login_usecase.dart';
 import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
@@ -24,4 +25,8 @@ Future<void> initDependencies() async {
 
   // UseCase
   serviceLocator.registerFactory(() => LoginUseCase(serviceLocator()));
+  // À ajouter dans votre fonction initDependencies()
+  serviceLocator.registerFactory(
+    () => AuthBloc(loginUseCase: serviceLocator()),
+  );
 }

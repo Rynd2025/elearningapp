@@ -8,6 +8,7 @@ class LoginUseCase {
 
   LoginUseCase(this.repository);
 
+  // La méthode 'call' permet d'appeler la classe comme une fonction
   Future<Either<Failure, UserEntity>> call(LoginParams params) async {
     return await repository.login(
       email: params.email,
@@ -16,7 +17,7 @@ class LoginUseCase {
   }
 }
 
-// Une classe simple pour passer les paramètres proprement
+// Classe pour regrouper les paramètres de connexion
 class LoginParams {
   final String email;
   final String password;
